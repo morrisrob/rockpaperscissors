@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Rock, Paper, Scissors</title>
+  <meta name="description" content="Rock, Paper, Scissors">
+  <meta name="author" content="SitePoint">
+
+</head>
+
+<body>
+  <script>
+    let computerScore = 0;
+    let playerScore = 0;
+    let round = 1;
+
+      function computerPlay() {
+        randomNumber = Math.floor((Math.random() * 3) + 1);
+        switch(randomNumber) {
+            case 1:
+                return "rock";
+            case 2: 
+                return "paper";
+            case 3:
+                return "scissors"
+        }
+      }
+
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection == computerSelection) {
+            return('It\'s a tie');
+        }
+        if (playerSelection == 'rock' && computerSelection == 'paper') {
+            computerScore++;
+            return ('Computer chose paper. You lose!')
+        }
+        if (playerSelection == 'rock' && computerSelection == 'scissors') {
+            playerScore++;
+            return ('Computer chose scissors. You win!') 
+        }
+        if (playerSelection == 'scissors' && computerSelection == 'paper') {
+            playerScore++;
+            return ('Computer chose paper. You win!') 
+        }
+        if (playerSelection == 'scissors' && computerSelection == 'rock') {
+            computerScore++;
+            return ('Computer chose rock. You lose!') 
+        }
+        if (playerSelection == 'paper' && computerSelection == 'scissors') {
+            computerScore++;
+            return ('Computer chose scissors. You lose!') 
+        }
+        if (playerSelection == 'paper' && computerSelection == 'rock') {
+            playerScore++;
+            return ('Computer chose rock. You win!') 
+        }
+     } 
+
+    function game() {
+        while (round < 6) {
+            let player = prompt("What do you pick?");
+            let playerLower = player.toLowerCase();
+            let computer = computerPlay();
+    
+            console.log('player: ' + playerLower);
+            console.log('computer: ' + computer);
+            console.log(playRound(playerLower, computer));
+            console.log('Round ' + round);
+            console.log('Computer score: ' + computerScore);
+            console.log('Player score: ' + playerScore);
+            round++;
+        }
+
+        if (playerScore < computerScore) {
+            console.log('The computer wins the round!');
+        }
+        else {
+            console.log ('Congrats! You won the round!');
+        }
+    }
+  </script>
+</body>
+</html>
