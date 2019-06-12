@@ -6,7 +6,7 @@
 
   <title>Rock, Paper, Scissors</title>
   <meta name="description" content="Rock, Paper, Scissors">
-  <meta name="author" content="SitePoint">
+  <meta name="author" content="Rob Morris">
 
 </head>
 
@@ -72,12 +72,14 @@
             console.log('Player score: ' + playerScore);
             round++;
         }
-
         if (playerScore < computerScore) {
             console.log('The computer wins the round!');
         }
-        else {
+        else if (playerScore > computerScore) {
             console.log ('Congrats! You won the round!');
+        }
+        else {
+            console.log ('It is a tie!')
         }
     }
   </script>
